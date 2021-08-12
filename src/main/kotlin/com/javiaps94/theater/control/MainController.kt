@@ -6,9 +6,9 @@ import org.springframework.web.servlet.ModelAndView
 
 @Controller
 class MainController {
-
-    @RequestMapping("helloWorld")
-    fun helloWorld() : ModelAndView = ModelAndView("helloWorld")
+    @RequestMapping("")
+    fun homePage() : ModelAndView =
+        ModelAndView("seatBooking", "bean", CheckAvailabilityBackingBean())
 }
 
 
