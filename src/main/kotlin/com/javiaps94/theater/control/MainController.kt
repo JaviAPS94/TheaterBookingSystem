@@ -10,3 +10,12 @@ class MainController {
     @RequestMapping("helloWorld")
     fun helloWorld() : ModelAndView = ModelAndView("helloWorld")
 }
+
+
+class CheckAvailabilityBackingBean() {
+    val seatNums = 1..36
+    val seatRows = 'A'..'O'
+    val selectedSeatNum : Int = 1
+    val selectedSeatRow : Char = 'A'
+    val result : String = ""
+}
