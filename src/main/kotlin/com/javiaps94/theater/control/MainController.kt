@@ -8,7 +8,5 @@ import org.springframework.web.servlet.ModelAndView
 class MainController {
 
     @RequestMapping("helloWorld")
-    fun helloWorld() : ModelAndView {
-        return ModelAndView("helloWorld")
-    }
+    fun helloWorld() : ModelAndView = ModelAndView("helloWorld")
 }
