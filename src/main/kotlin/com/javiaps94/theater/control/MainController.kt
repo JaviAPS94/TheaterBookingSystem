@@ -1,9 +1,11 @@
 package com.javiaps94.theater.control
 
+import com.javiaps94.theater.data.SeatRepository
 import com.javiaps94.theater.services.BookingService
 import com.javiaps94.theater.services.TheaterService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
+import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestMethod
 import org.springframework.web.servlet.ModelAndView
@@ -17,6 +19,9 @@ class MainController {
     @Autowired
     lateinit var bookingService: BookingService
 
+    @Autowired
+    lateinit var seatRepository: SeatRepository
+
     @RequestMapping("")
     fun homePage() : ModelAndView =
         ModelAndView("seatBooking", "bean", CheckAvailabilityBackingBean())
@@ -28,6 +33,13 @@ class MainController {
         bean.result = "Seat $selectedSeat is " + if (result) "available" else "booked"
         return ModelAndView("seatBooking", "bean", bean)
     }
+
+//    @RequestMapping("bootstrap")
+//    fun createInitialData() : ModelAndView {
+//        val seats = theaterService.seats
+//        seatRepository.saveAll(seats)
+//        return homePage()
+//    }
 }
 
 
